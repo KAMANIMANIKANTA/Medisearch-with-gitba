@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_styles.css') }}">
+</head>
+<body>
+    <div class="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="themeSwitcher">
+            <span class="slider round"></span>
+        </label>
+        <span>Dark Mode</span>
+    </div>
+    <div class="container">
+        <h1 class="header">Admin Dashboard</h1>
+        <div class="actions">
+            <a href="{{ url_for('manage_users') }}" class="btn btn-primary">Manage Users</a>
+            <a href="{{ url_for('manage_medicines') }}" class="btn btn-primary">Manage Medicines</a>
+            <a href="{{ url_for('chat_history') }}" class="btn btn-primary">Manage Chat Histories</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        </div>
+
+        <!-- Users Section -->
+        <h2>Users</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.role }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_user', user_id=user._id) }}" class="btn btn-edit">Edit</a>
+                        <form action="{{ url_for('delete_user', user_id=user._id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-delete">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4">No users found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Medicines Section -->
+        <h2>Medicines</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medicine in medicines %}
+                <tr>
+                    <td>{{ medicine.name }}</td>
+                    <td>{{ medicine.description.usage.short }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_medicine', medicine_id=medicine._id) }}" class="btn btn-edit">Edit</a>
+                        <form action="{{ url_for('delete_medicine', medicine_id=medicine._id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-delete">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="3">No medicines found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="{{ url_for('static', filename='dark_mode.js') }}"></script>
+</body>
+</html>

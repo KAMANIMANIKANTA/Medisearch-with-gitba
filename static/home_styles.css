@@ -1,0 +1,73 @@
+/* static/home_styles.css */
+
+/* Basic reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Full-page background */
+body {
+    background: url("../static/images/home_background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+/* Navbar styling */
+.navbar {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar nav ul li {
+    margin-left: 20px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    background: #0056b3;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Content section styling */
+.content {
+    padding: 80px 20px 20px; /* Adjusted padding to accommodate the fixed header */
+    background: rgba(255, 255, 255, 0.9);
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    margin-top: 20px;
+    position: relative;
+}

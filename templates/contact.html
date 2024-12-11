@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - MediSearch</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+    <style>
+        /* Reset and Base Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f0f4f8;
+        }
+
+        /* Full Page Layout */
+        .contact-page {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Animated Background */
+        .animation-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        /* Glass Morphism Contact Box */
+        .glass-box {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.8s ease;
+            animation: slideUp 1s forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: scale(0.9) translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .glass-box h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #34495e;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-page">
+        <div class="animation-container" id="contactAnimation"></div>
+        
+        <div class="glass-box">
+            <h2>Contact MediSearch</h2>
+            <p>Have questions? We're here to help! Fill out the form below.</p>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" required placeholder="Enter your mobile number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="What can we help you with?"></textarea>
+                </div>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Load Lottie animation
+        const contactAnimation = lottie.loadAnimation({
+            container: document.getElementById('contactAnimation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://lottie.host/17f6c700-70fc-4b1f-ade9-61cfab57b389/uGgqyqDHr6.json' // Medical/healthcare animation
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submission would be handled here in a real application.');
+        });
+    </script>
+</body>
+</html>

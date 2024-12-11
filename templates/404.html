@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        h1 {
+            font-size: 100px;
+            margin: 0;
+            color: #ff6f61;
+        }
+        p {
+            font-size: 20px;
+            color: #555;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .not-found-container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .animation-container {
+            margin-bottom: 20px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+</head>
+<body>
+    <div class="not-found-container">
+        <div class="animation-container">
+            <div id="404Animation" style="width: 300px; height: 300px; margin: auto;"></div>
+        </div>
+        <h1>404</h1>
+        <p>Oops! The page you're looking for does not exist.</p>
+        <p><a href="/">Go back to the homepage</a></p>
+    </div>
+
+    <script>
+        // Load Lottie animation
+        const animation404 = lottie.loadAnimation({
+            container: document.getElementById('404Animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: "{{ url_for('static', filename='animations/404.json') }}" // Ensure the file exists
+        });
+    </script>
+</body>
+</html>

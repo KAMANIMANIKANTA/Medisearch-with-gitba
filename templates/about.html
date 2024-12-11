@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - MediSearch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='about_styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">MediSearch</div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="/about" class="active">About</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="about-container">
+        <div class="animation-container">
+            <div id="aboutAnimation" style="width: 400px; height: 400px; margin: auto;"></div>
+        </div>
+        <div class="about-content">
+            <h1>About MediSearch</h1>
+            <p>
+                MediSearch is an AI-driven platform designed to provide reliable and comprehensive information 
+                about medicines. We aim to empower individuals with the knowledge to make informed healthcare decisions.
+            </p>
+            <p>
+                Our platform integrates advanced features like OCR-based prescription scanning, multilingual support, 
+                and voice interaction to enhance accessibility and usability. Your health and data security are our priorities.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MediSearch. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Load Lottie animation
+        const aboutAnimation = lottie.loadAnimation({
+            container: document.getElementById('aboutAnimation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: "{{ url_for('static', filename='animations/about.json') }}" // Update with your Lottie JSON file
+        });
+    </script>
+</body>
+</html>

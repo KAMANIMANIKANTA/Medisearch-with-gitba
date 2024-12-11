@@ -1,0 +1,2 @@
+msgid "Welcome to MediSearch"
+msgstr "मेडीसर्च में आपका स्वागत है"

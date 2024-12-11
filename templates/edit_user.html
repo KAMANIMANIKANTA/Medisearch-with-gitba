@@ -1,0 +1,31 @@
+<!-- templates/edit_user.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_styles.css') }}">
+</head>
+<body>
+    <h2>Edit User Information</h2>
+    <form method="POST" action="{{ url_for('edit_user', user_id=user._id) }}">
+        <label>Username:</label>
+        <input type="text" name="username" value="{{ user.username }}" required>
+        <label>Email:</label>
+        <input type="email" name="email" value="{{ user.email }}" required>
+        <label>Role:</label>
+        <select name="role" required>
+            <option value="user" {% if user.role == 'user' %}selected{% endif %}>User</option>
+            <option value="admin" {% if user.role == 'admin' %}selected{% endif %}>Admin</option>
+        </select>
+        <button type="submit">Update</button>
+    </form>
+
+    <!-- Form for deleting the user, using POST method -->
+    <form action="{{ url_for('delete_user', user_id=user._id) }}" method="POST" style="margin-top: 10px;">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+    <a href="{{ url_for('manage_users') }}" class="btn btn-secondary">Cancel</a>
+</body>
+</html>

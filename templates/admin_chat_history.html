@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Histories</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_styles.css') }}">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table thead tr {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 12px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        .back-btn {
+            margin-bottom: 20px;
+        }
+
+        .btn-back {
+            background-color: #007bff;
+            border: none;
+            cursor: pointer;
+            padding: 8px 16px;
+        }
+
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-back">Back to Dashboard</a>
+        <h1>Manage User Chat Histories</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Chat Date</th>
+                        <th>Messages</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for chat in chats %}
+                    <tr>
+                        <td>{{ chat.user }}</td>
+                        <td>{{ chat.date_created }}</td>
+                        <td>
+                            <div style="max-height: 150px; overflow-y: auto;">{{ chat.messages }}</div>
+                        </td>
+                        <td>
+                            <form action="{{ url_for('delete_chat', chat_id=chat.id) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="btn btn-delete">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="4" class="no-data">No chat histories found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

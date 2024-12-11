@@ -1,0 +1,77 @@
+<!-- templates/edit_medicine.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Medicine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_styles.css') }}">
+</head>
+<body>
+    <div class="edit-medicine-container">
+        <h2>Edit Medicine Details</h2>
+        <form method="POST" action="{{ url_for('edit_medicine', medicine_id=medicine._id) }}">
+            <div class="form-group">
+                <label for="name">Medicine Name:</label>
+                <input type="text" id="name" name="name" value="{{ medicine.name }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="usage_short">Usage (Short Description):</label>
+                <input type="text" id="usage_short" name="usage_short" value="{{ medicine.description.usage.short }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="usage_detailed">Usage (Detailed Description):</label>
+                <textarea id="usage_detailed" name="usage_detailed" rows="4" required>{{ medicine.description.usage.detailed }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="why_short">Why to Use (Short Description):</label>
+                <input type="text" id="why_short" name="why_short" value="{{ medicine.description.why_to_use.short }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="why_detailed">Why to Use (Detailed Description):</label>
+                <textarea id="why_detailed" name="why_detailed" rows="4" required>{{ medicine.description.why_to_use.detailed }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="advantages_short">Advantages (Short Description):</label>
+                <input type="text" id="advantages_short" name="advantages_short" value="{{ medicine.description.advantages.short }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="advantages_detailed">Advantages (Detailed Description):</label>
+                <textarea id="advantages_detailed" name="advantages_detailed" rows="4" required>{{ medicine.description.advantages.detailed }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="disadvantages_short">Disadvantages (Short Description):</label>
+                <input type="text" id="disadvantages_short" name="disadvantages_short" value="{{ medicine.description.disadvantages.short }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="disadvantages_detailed">Disadvantages (Detailed Description):</label>
+                <textarea id="disadvantages_detailed" name="disadvantages_detailed" rows="4" required>{{ medicine.description.disadvantages.detailed }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="side_effects_short">Side Effects (Short Description):</label>
+                <input type="text" id="side_effects_short" name="side_effects_short" value="{{ medicine.description.side_effects.short }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="side_effects_detailed">Side Effects (Detailed Description):</label>
+                <textarea id="side_effects_detailed" name="side_effects_detailed" rows="4" required>{{ medicine.description.side_effects.detailed }}</textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="{{ url_for('manage_medicines') }}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

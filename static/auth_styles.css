@@ -1,0 +1,81 @@
+/* General body styling */
+
+
+/* Full-page background */
+body {
+    background: url("../static/images/auth_background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Form container styling */
+form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+/* Form field styling */
+form input, form select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Labels styling */
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Form title styling */
+h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* Button styling */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    form {
+        width: 90%;
+        padding: 15px;
+    }
+}

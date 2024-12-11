@@ -1,0 +1,227 @@
+/* General Body and Layout Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    display: flex;
+    background-color: #f4f4f4; /* Neutral background for better contrast */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background-color: #2a3f54; /* Dark blue for sidebar */
+    color: white;
+    padding: 20px;
+    height: 100vh; /* Full-height for the sidebar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+}
+
+.sidebar h1 {
+    margin-bottom: 30px;
+    font-size: 24px; /* Larger font for better branding */
+    text-transform: uppercase; /* Makes the heading stand out */
+}
+
+.sidebar button {
+    background-color: #4a6785;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.sidebar button:hover {
+    background-color: #3b4f67; /* Slightly darker hover color */
+}
+
+/* Chat Container Styling */
+.chat-container {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 10px 0 0 10px; /* Smooth rounded corners */
+}
+
+/* User Bar Styling */
+.user-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #34495E;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.avatar-circle {
+    width: 50px;
+    height: 50px;
+    background-color: #1ABC9C; /* Bright green for distinction */
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+
+.user-display-name p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Logout Button Styling */
+.logout-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #c9302c; /* Slightly darker hover effect */
+}
+
+
+/* Robot Avatar Styling */
+.robot-section {
+    display: flex;
+    align-items: center;
+    background-color: #e8f4f8; /* Light blue background for robot area */
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+.robot-avatar {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    border-radius: 50%;
+    border: 2px solid #4CAF50;
+}
+
+.robot-greeting {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+
+
+/* Search Bar Styling */
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a slight shadow */
+}
+
+.search-container input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    height: 40px;
+    font-size: 16px;
+    outline: none; /* Removes the default outline */
+}
+
+.search-container button {
+    background-color: #5cb85c; /* Positive green color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.pin-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333; /* Neutral icon color */
+}
+
+.pin-icon:hover {
+    color: #5cb85c; /* Green hover effect for pin icon */
+}
+
+/* Response Box Styling */
+.response-box {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+    font-size: 16px;
+    color: #34495E; /* Dark text for better readability */
+}
+
+/* Read Aloud Button Styling */
+.read-aloud-button {
+    background-color: #f0ad4e; /* Distinct orange for differentiation */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.read-aloud-button:hover {
+    background-color: #ec971f; /* Slightly darker hover effect */
+}
+
+/* History Items Styling */
+.history-item {
+    background-color: #eaeaea; /* Light grey background for history items */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.history-item p {
+    margin: 5px 0;
+    font-size: 14px;
+}

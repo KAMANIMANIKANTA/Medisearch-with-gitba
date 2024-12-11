@@ -1,0 +1,49 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _("MediSearch Home") }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home_styles.css') }}">
+
+    <!-- Google Analytics Tracking Code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DQFM7YMKQB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-DQFM7YMKQB');
+    </script>
+    <!-- End of Google Analytics Tracking Code -->
+</head>
+<body>
+    <!-- Header Navigation Bar -->
+    <header class="navbar">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">{{ _("Home") }}</a></li>
+                <li><a href="{{ url_for('login') }}">{{ _("Login") }}</a></li>
+                <li><a href="{{ url_for('signup') }}">{{ _("Sign Up") }}</a></li>
+                <li><a href="{{ url_for('about') }}">{{ _("About") }}</a></li>
+                <li><a href="{{ url_for('contact') }}">{{ _("Contact") }}</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h1>{{ _("Welcome to MediSearch") }}</h1>
+        <p>{{ _("Your trusted source for medicine information and more.") }}</p>
+
+        <h2 id="about">{{ _("About MediSearch") }}</h2>
+        <p>{{ _("MediSearch is an AI-driven platform designed to provide reliable and comprehensive information about medicines, ensuring that you make informed healthcare decisions.") }}</p>
+
+        <h2 id="contact">{{ _("Contact Us") }}</h2>
+        <p>{{ _("For more information or support, please contact us at support@medisearch.com.") }}</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MediSearch. {{ _("All rights reserved.") }}</p>
+    </footer>
+</body>
+</html>

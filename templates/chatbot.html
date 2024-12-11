@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='chatbot_styles.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <title>MediSearch Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>MediSearch</h1>
+        <button onclick="newChat()">New Chat</button>
+        <button onclick="showHistory()">History</button>
+    </div>
+    <div class="chat-container">
+        <div class="user-bar">
+            <div class="user-avatar">
+                <span class="avatar-circle">{{ user_display_name[0].upper() }}</span>
+            </div>
+            <div class="user-display-name">
+                <span>{{ user_display_name }}</span>
+            </div>
+            <form action="{{ url_for('logout') }}" method="POST" style="display: inline;">
+                <button type="submit" class="logout-button">Logout</button>
+            </form>
+        </div>
+
+        <!-- Robot Section -->
+        <div class="robot-section">
+            <div id="robotAnimation" style="width: 150px; height: 150px;"></div>
+            <div class="robot-greeting">
+                <p id="robotText"><strong>Robot:</strong> Hi {{ user_display_name }}, how can I assist you today?</p>
+            </div>
+        </div>
+
+        <!-- Search Container -->
+        <form action="{{ url_for('chatbot_view') }}" method="POST" class="search-container" enctype="multipart/form-data">
+            <button type="button" class="pin-icon" onclick="uploadPrescription()">
+                <i class="fas fa-paperclip"></i>
+            </button>
+            <input type="file" id="fileInput" name="uploaded_file" accept=".png,.jpg,.jpeg,.pdf,.docx,.txt" style="display: none;">
+            <input type="text" id="message" name="message" placeholder="Ask me about a medicine..." required>
+            <button onclick="speakResponse()" type="button" class="read-aloud-button">Read Aloud</button>
+            <button type="submit" class="send-button">Send</button>
+        </form>
+
+        <!-- Response Box -->
+        <div class="response-box" id="responseBox">
+            {% if response %}
+                <p id="responseText">{{ response }}</p>
+                <script>
+                    const responseText = document.getElementById('responseText');
+                    if (responseText) {
+                        const utterance = new SpeechSynthesisUtterance(responseText.textContent);
+                        const voices = speechSynthesis.getVoices();
+                        utterance.voice = voices.find(voice => voice.lang === 'en-US') || voices[0];
+                        utterance.pitch = 1;
+                        utterance.rate = 1;
+                        speechSynthesis.speak(utterance);
+                    }
+                </script>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        // Load the Lottie animation
+        const robotAnimation = lottie.loadAnimation({
+            container: document.getElementById('robotAnimation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: "{{ url_for('static', filename='animations/robot.json') }}"
+        });
+
+        // Greet the user with a robot voice
+        function greetUser() {
+            const greetingText = document.getElementById('robotText').textContent;
+            const utterance = new SpeechSynthesisUtterance(greetingText);
+            const voices = speechSynthesis.getVoices();
+            utterance.voice = voices.find(voice => voice.lang === 'en-US') || voices[0];
+            utterance.pitch = 1;
+            utterance.rate = 1;
+            speechSynthesis.speak(utterance);
+        }
+
+        // Speak the chatbot's response
+        function speakResponse() {
+            const responseText = document.getElementById('responseText');
+            if (responseText) {
+                const utterance = new SpeechSynthesisUtterance(responseText.textContent);
+                const voices = speechSynthesis.getVoices();
+                utterance.voice = voices.find(voice => voice.lang === 'en-US') || voices[0];
+                utterance.pitch = 1;
+                utterance.rate = 1;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        function newChat() {
+            document.getElementById("message").value = "";
+            document.getElementById("responseBox").innerHTML = "";
+            alert("New chat started!");
+        }
+
+        function showHistory() {
+            fetch('/history')
+                .then(response => response.json())
+                .then(data => {
+                    let historyHtml = "";
+                    if (data.length === 0) {
+                        historyHtml = "<p>No history available.</p>";
+                    } else {
+                        data.forEach(item => {
+                            historyHtml += `
+                                <div class="history-item">
+                                    <p><strong>Query:</strong> ${item.query}</p>
+                                    <p><strong>Response:</strong> ${item.response}</p>
+                                    <p><em>${item.timestamp}</em></p>
+                                </div>
+                                <hr>`;
+                        });
+                    }
+                    document.getElementById("responseBox").innerHTML = historyHtml;
+                })
+                .catch(error => console.error("Error fetching history:", error));
+        }
+
+        function uploadPrescription() {
+            const fileInput = document.getElementById('fileInput');
+            fileInput.click();
+            fileInput.onchange = function () {
+                const form = document.querySelector('.search-container');
+                form.submit(); // Automatically submit the form after file selection
+            };
+        }
+
+        // Ensure the robot greets the user on page load
+        window.onload = function () {
+            speechSynthesis.onvoiceschanged = greetUser;
+        };
+    </script>
+</body>
+</html>
