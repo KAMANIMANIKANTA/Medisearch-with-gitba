@@ -3,6 +3,8 @@
 ## Description
 The MediSearch Chatbot provides interactive drug information, supports multiple languages, and integrates AI-driven responses to improve user accessibility and experience.
 
+![MediSearch Home page](https://github.com/user-attachments/assets/cc28605d-2a2a-41d0-a58e-d8135cfc6024)
+
 ## Installation
 Clone the repository and install dependencies:
 ```bash
