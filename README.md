@@ -4,6 +4,19 @@
 The MediSearch Chatbot provides interactive drug information, supports multiple languages, and integrates AI-driven responses to improve user accessibility and experience.
 
 ![MediSearch Home page](https://github.com/user-attachments/assets/cc28605d-2a2a-41d0-a58e-d8135cfc6024)
+![User Signup Page](https://github.com/user-attachments/assets/e8bc766e-e4e0-4bcb-b1b4-f7d3620d0a36)
+![User Login Page](https://github.com/user-attachments/assets/96c92fba-410b-4f49-a467-1031564712b0)
+![User Login into Medisearch page](https://github.com/user-attachments/assets/16a57a60-48b5-4f95-9525-2b93c1213548)
+![User medicine search history](https://github.com/user-attachments/assets/93b3aba7-5617-465c-8805-ebfdfa701660)
+![User Click New Chat](https://github.com/user-attachments/assets/0e74a72f-a17f-41fb-ab8c-5cc0fe27b8ac)
+![Admin Signup Page](https://github.com/user-attachments/assets/1e0355d4-9a8c-4810-ba9b-2b563793547a)
+![Admin Login page](https://github.com/user-attachments/assets/56fcc18c-f505-4bac-b077-3b1e3a6cff3b)
+![Admin Login into Admin Dashboard Page](https://github.com/user-attachments/assets/dc196ad0-82cd-497c-8b82-37c6d4904c9d)
+![Admin Manage the Medicines](https://github.com/user-attachments/assets/8f447354-ff4e-4b8a-9e8d-59f74f97f078)
+![Admin Manage the Users](https://github.com/user-attachments/assets/3114b6b4-444e-4d86-8174-904243925198)
+![Admin Manage the User History](https://github.com/user-attachments/assets/04477b29-81e5-4a8f-8186-8ecde64357d1)
+![MediSearch About Page](https://github.com/user-attachments/assets/ec9773e8-4575-46e6-b90a-3f027cf31ec5)
+![MediSearch Contact Page](https://github.com/user-attachments/assets/10dbd3ec-56d9-4e3b-819b-febea9891aed)
 
 ## Installation
 Clone the repository and install dependencies:
