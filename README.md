@@ -18,7 +18,7 @@ Encourage contributions to your project.
 ```markdown
 ## Contributing
 Contributions are welcome! Please fork the repository and submit pull requests with your proposed changes.
-
+![MediSearch Home page](https://github.com/user-attachments/assets/d7779045-dac4-4db4-bddc-d77698dfb40d)
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 ![Description of the image](path/to/your/image.jpg)
