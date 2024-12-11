@@ -21,8 +21,8 @@ Contributions are welcome! Please fork the repository and submit pull requests w
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
-![Description of the image](path/to/your/image.jpg)
-![MediSearch Home page](https://github.com/user-attachments/assets/8ab9be13-5d50-4196-b16b-7552fd2abf2a)
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](path/to/your/image.jpg)
+!![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/user-attachments/assets/8ab9be13-5d50-4196-b16b-7552fd2abf2a)
 ![User Signup Page](https://github.com/user-attachments/assets/a474f342-8487-416b-b746-172485951619)
 ![User Login Page](https://github.com/user-attachments/assets/a5064026-b8a6-4f5f-a5ad-64158e8d42c8)
 ![User Login into Medisearch page](https://github.com/user-attachments/assets/6a7a8bcc-789a-4d12-97c6-a340d59ee0eb)
